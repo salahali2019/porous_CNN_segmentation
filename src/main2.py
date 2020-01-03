@@ -208,24 +208,39 @@ class Dataloder(keras.utils.Sequence):
         if self.shuffle:
             self.indexes = np.random.permutation(self.indexes)
 
-bread_syntheic_in='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/new_250_250_synthetic/input'
-bread_syntheic_out='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/new_250_250_synthetic/output'
+ if __name__ == "__main__":
 
-bread_real_in='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/250_250_real/input'
-bread_real_out='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/250_250_real/output'
-porepy_3d='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/3d'
-porespy_image_path='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/input'
-porespy_ground_truth_path='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/output'
+	import argparse
+
+	parser = argparse.ArgumentParser(description='passing')
+
+	parser.add_argument('--train_dir', required=False,
+						metavar="/path/to/dataset/",
+						help='Root directory of the dataset')
+
+	parser.add_argument('--valid_dir', required=False,
+						metavar="/path/to/dataset/",
+						help='Root directory of the dataset')
 
 
-x_train_dir = porespy_image_path 
-y_train_dir = porespy_ground_truth_path
+	parser.add_argument('--test_dir', required=False,
+						metavar="/path/to/dataset/",
+						help='Root directory of the dataset')
 
-x_valid_dir = bread_syntheic_in
-y_valid_dir = bread_syntheic_out
 
-x_test_dir =bread_real_in
-y_test_dir = bread_real_out
+	args = parser.parse_args()
+	
+            
+            
+
+x_train_dir = os.join(args.train_dir,'input')
+y_train_dir = os.join(args.train_dir,'output')
+
+x_valid_dir = os.join(args.valid_dir,'input')
+y_valid_dir = os.join(args.valid_dir,'output')
+
+x_test_dir = os.join(args.test_dir,'input')
+y_test_dir = os.join(args.test_dir,'output')
 
 
 BACKBONE = 'resnet34'
