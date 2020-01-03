@@ -213,7 +213,9 @@ bread_syntheic_out='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_i
 
 bread_real_in='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/250_250_real/input'
 bread_real_out='./GoogleDrive/My Drive/CSIRO_image_august_2019/2D/selected_images/250_250_real/output'
-
+porepy_3d='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/3d'
+porespy_image_path='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/input'
+porespy_ground_truth_path='./GoogleDrive/My Drive/RMIT Master/porous_dataset_2019/bread_Oct/output'
 
 
 x_train_dir = porespy_image_path 
