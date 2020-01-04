@@ -1,6 +1,9 @@
 keras_applications>=1.0.7,<=1.0.8
 image-classifiers==1.0.0
 efficientnet==1.0.0
+porespy
+sympy
+noise
 numpy 
 scipy 
 matplotlib 
@@ -16,4 +19,4 @@ pytest-cov
 pytest-pep8 
 jupyter 
 pyevtk
-porespy
+
