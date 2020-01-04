@@ -65,12 +65,6 @@ if __name__ == "__main__":
    
     args = parser.parse_args()
     
-    if not os.path.exists(3D_dir):
-        os.makedirs(3D_dir)
-    if not os.path.exists(grayscale_image_dir):
-        os.makedirs(grayscale_image_dir)
-    if not os.path.exists(GT_image_dir):
-        os.makedirs(GT_image_dir)
 
 
     if args.command == "blob":
