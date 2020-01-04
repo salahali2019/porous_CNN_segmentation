@@ -61,14 +61,16 @@ if __name__ == "__main__":
     parser.add_argument('--GT_image_dir', required=False,
                         metavar="/path/to/dataset/",
                         help='Root directory of the ground truth dataset')
+    
+   
+    args = parser.parse_args()
+    
     if not os.path.exists(3D_dir):
         os.makedirs(3D_dir)
     if not os.path.exists(grayscale_image_dir):
         os.makedirs(grayscale_image_dir)
     if not os.path.exists(GT_image_dir):
         os.makedirs(GT_image_dir)
-   
-    args = parser.parse_args()
 
 
     if args.command == "blob":
