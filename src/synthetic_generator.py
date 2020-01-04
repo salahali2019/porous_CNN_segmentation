@@ -71,7 +71,7 @@ if __name__ == "__main__":
         im1 = np.invert(ps.generators.blobs(shape=[20,256,256], porosity=0.6, blobiness=2))
         noise=sythetic_gaussian_image(im1)
         for i in range(20):
-            name1='blob'+str(blob)+'_'+'p'+str(porosity)+str(i)+'.png'     
+            name1='blob'+str(blobiness)+'_'+'p'+str(porosity)+str(i)+'.png'     
             io.imsave(os.path.join(grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
             plt.imsave(os.path.join(GT_image_dir,name1),im1[i])
 
