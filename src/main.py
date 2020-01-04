@@ -232,6 +232,7 @@ if __name__ == "__main__":
     parser.add_argument('--test_dir', required=False,
                         metavar="/path/to/dataset/",
                         help='Root directory of the dataset')
+    
 
 
     args = parser.parse_args()
@@ -334,5 +335,5 @@ history = model.fit_generator(
 )
 
 
-model.save_weights('./GoogleDrive/My Drive/CSIRO_image_august_2019/segmenation_model_porespy_trained_4_10_v00.h5')
+model.save_weights('model_weight.h5')
 
