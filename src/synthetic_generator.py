@@ -40,13 +40,16 @@ def sythetic_gaussian_image(im):
     
     return blu2
 
-
+# python3 synthetic_generator.py blob --3D_dir='3d' --grayscale_image_dir='input' --GT_image_dir='output'
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='generating sythentic porous images')
-
+    
+    parser.add_argument("command",
+                        metavar="<command>",
+                        help="'blob' or 'overlapping_spheres'")
     parser.add_argument('--3D_dir', required=False,
                         metavar="/path/to/dataset/",
                         help='Root directory of the 3D dataset')
@@ -64,9 +67,7 @@ if __name__ == "__main__":
         os.makedirs(grayscale_image_dir)
     if not os.path.exists(GT_image_dir):
         os.makedirs(GT_image_dir)
-    parser.add_argument("command",
-                        metavar="<command>",
-                        help="'blob' or 'overlapping_spheres'")
+   
     args = parser.parse_args()
 
 
