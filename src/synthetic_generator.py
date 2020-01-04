@@ -1,9 +1,4 @@
 
-# coding: utf-8
-
-# In[ ]:
-
-
 import numpy as np
 import os
 import skimage
@@ -80,8 +75,8 @@ if __name__ == "__main__":
         noise=sythetic_gaussian_image(im1)
         for i in range(20):
             name1='blob'+str(blob)+'_'+'p'+str(porosity)+str(i)+'.png'     
-            io.imsave(os.path.join(porespy_image_path,name1),sythetic_gaussian_image(im1[i]))
-            plt.imsave(os.path.join(porespy_ground_truth_path,name1),im1[i])
+            io.imsave(os.path.join(grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
+            plt.imsave(os.path.join(GT_image_dir,name1),im1[i])
 
     if args.command == "overlapping_spheres":
         im1 = np.invert(ps.generators.overlapping_spheres(shape=[100,256,256], porosity=0.2, radius=30))
@@ -89,8 +84,8 @@ if __name__ == "__main__":
 
         for i in range(20):
             name1='overlapping_spheres'+str(radius)+'_'+'p'+str(porosity)+str(i)+'.png'     
-            io.imsave(os.path.join(porespy_image_path,name1),sythetic_gaussian_image(im1[i]))
-            plt.imsave(os.path.join(porespy_ground_truth_path,name1),im1[i])
+            io.imsave(os.path.join(grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
+            plt.imsave(os.path.join(GT_image_dir,name1),im1[i])
         
 
 
