@@ -74,8 +74,8 @@ if __name__ == "__main__":
         noise=sythetic_gaussian_image(im1)
         for i in range(20):
             name1='blob'+str(blob)+'_'+'p'+str(p)+str(i)+'.png'     
-            io.imsave(os.path.join('grayscale_image_dir',name1),sythetic_gaussian_image(im1[i]))
-            plt.imsave(os.path.join('GT_image_dir',name1),im1[i])
+            io.imsave(os.path.join(grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
+            plt.imsave(os.path.join(GT_image_dir,name1),im1[i])
 
     if args.command == "overlapping_spheres":
         p=0.6
@@ -85,8 +85,8 @@ if __name__ == "__main__":
 
         for i in range(20):
             name1='overlapping_spheres'+str(r)+'_'+'p'+str(p)+str(i)+'.png'     
-            io.imsave(os.path.join('grayscale_image_dir',name1),sythetic_gaussian_image(im1[i]))
-            plt.imsave(os.path.join('GT_image_dir',name1),im1[i])
+            io.imsave(os.path.join(grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
+            plt.imsave(os.path.join(GT_image_dir,name1),im1[i])
         
 
 
