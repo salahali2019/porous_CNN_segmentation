@@ -16,3 +16,4 @@ pytest-cov
 pytest-pep8 
 jupyter 
 pyevtk
+porespy
