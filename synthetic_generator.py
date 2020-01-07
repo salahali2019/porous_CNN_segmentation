@@ -50,7 +50,15 @@ if __name__ == "__main__":
     parser.add_argument("command",
                         metavar="<command>",
                         help="'blob' or 'overlapping_spheres'")
-    parser.add_argument('--3D_dir', required=False,
+
+    parser.add_argument('--porosity', type=float,required=False,)
+
+    parser.add_argument('--size', type=float,required=False,)
+
+    parser.add_argument('--fileName', required=False,
+                        metavar="name",
+                        help='name of file')
+    parser.add_argument('--three_3D_dir', required=False,
                         metavar="/path/to/dataset/",
                         help='Root directory of the 3D dataset')
 
@@ -65,26 +73,43 @@ if __name__ == "__main__":
    
     args = parser.parse_args()
     
+ 
+    if not os.path.exists(args.grayscale_image_dir):
+            os.makedirs(args.grayscale_image_dir)
+    if not os.path.exists(args.GT_image_dir):
+            os.makedirs(args.GT_image_dir)
+    if not os.path.exists(args.three_3D_dir):
+            os.makedirs(args.three_3D_dir)
+
+
+    p=args.porosity
+    blob=args.size
+    r=args.size
+    fileN=args.fileName
+
+
+        
+    
 
 
     if args.command == "blob":
-        blob=2
-        p=0.6
-        im1 = np.invert(ps.generators.blobs(shape=[20,256,256], porosity=p, blobiness=blob))
+       # blob=2
+      #  p=0.6
+        im1 = np.invert(ps.generators.blobs(shape=[100,256,256], porosity=p, blobiness=blob))
         noise=sythetic_gaussian_image(im1)
-        for i in range(20):
-            name1='blob'+str(blob)+'_'+'p'+str(p)+str(i)+'.png'     
+        for i in range(100):
+            name1=fileN+'_'+'blob'+str(blob)+'_'+'p'+str(p)+str(i)+'.png'     
             io.imsave(os.path.join(args.grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
             plt.imsave(os.path.join(args.GT_image_dir,name1),im1[i])
 
     if args.command == "overlapping_spheres":
-        p=0.6
-        r=30
+    #  p=0.6
+     #   r=30
         im1 = np.invert(ps.generators.overlapping_spheres(shape=[100,256,256], porosity=p, radius=r))
         noise=sythetic_gaussian_image(im1)
 
-        for i in range(20):
-            name1='overlapping_spheres'+str(r)+'_'+'p'+str(p)+str(i)+'.png'     
+        for i in range(100):
+            name1=fileN+'_'+'overlapping_spheres'+str(r)+'_'+'p'+str(p)+str(i)+'.png'     
             io.imsave(os.path.join(args.grayscale_image_dir,name1),sythetic_gaussian_image(im1[i]))
             plt.imsave(os.path.join(args.GT_image_dir,name1),im1[i])
         
